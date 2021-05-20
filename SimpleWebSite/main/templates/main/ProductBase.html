@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    информация о {{ curproduct.ProductName }}
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container card" xmlns="http://www.w3.org/1999/html">
+        <div class="row card-body" style="background-color: whitesmoke">
+            <div class="col-md-4">
+                <h3>{{ curproduct.ProductName }}</h3>
+                <div class="container" >
+                    <img src="{{ curproduct.ProductImage.url }}" />
+                </div>
+                <h5 class="p-2 text-dark" > цена: {{ curproduct.ProductPrice }}</h5>
+            </div>
+            <div class="col-md-7">
+                <h5 class="p-2 text-dark" > описание:<br/> <h6>{{ curproduct.ProductDescription }}</h6></h5>
+                    <form method="post" action="/addtocart">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{ curproduct.id }}" name="product_id" />
+                        <input class="w-100 btn btn-lg btn-outline-primary" type="submit" value="добавить в корзину" name="confirm" />
+                    </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
