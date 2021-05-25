@@ -20,7 +20,7 @@
                 <div class="col-md-10" >
                         <div class="card mb-4 rounded-3 shadow-sm" >
                             <div class="card-body">
-                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis"><a class="p-2 text-dark" href="{% url 'product' productid=product.id %}" >{{ product.products.ProductName }}</a></h3><br/>
+                                <h3 style="white-space: nowrap; overflow: hidden; text-overflow:ellipsis"><a class="p-2 text-dark" href="{% url 'product' productid=product.products.id %}" >{{ product.products.ProductName }}</a></h3><br/>
                                 <h5 class="p-2 text-dark" > цена: {{ product.products.ProductPrice }}</h5><br/>
                             </div>
                         </div>
